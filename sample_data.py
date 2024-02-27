@@ -28,11 +28,11 @@ while True:
 
         csv_writer.writerow(info)
         print(x, y, z, t)
-        t += 1
+        t += delay
         x += random.uniform(-3, 2)
         y += random.uniform(-3, 2)
         z += random.uniform(0, 1)
-    time.sleep(2)
+    time.sleep(delay)
 
 
         

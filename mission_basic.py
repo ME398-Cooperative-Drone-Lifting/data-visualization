@@ -26,17 +26,16 @@ connection_string = args.connect
 sitl = None
 
 
-# #Start SITL if no connection string specified
-# if not connection_string:
-#     import dronekit_sitl
-#     sitl = dronekit_sitl.start_default()
-#     connection_string = sitl.connection_string()
+#Start SITL if no connection string specified
+if not connection_string:
+    import dronekit_sitl
+    sitl = dronekit_sitl.start_default()
+    connection_string = sitl.connection_string()
 
 
-# # Connect to the Vehicle
-# print('Connecting to vehicle on: %s' % connection_string)
-# vehicle = connect(connection_string, wait_ready=True)
-vehicle = connect('tcp:127.0.0.1:5760', wait_ready = True)
+# Connect to the Vehicle
+print('Connecting to vehicle on: %s' % connection_string)
+vehicle = connect(connection_string, wait_ready=True)
 
 
 def get_location_metres(original_location, dNorth, dEast):

@@ -13,9 +13,7 @@ from dronekit import connect, VehicleMode, LocationGlobalRelative, LocationGloba
 import time
 import math
 from pymavlink import mavutil
-
 import csv
-
 
 #Set up option parsing to get connection string
 import argparse  
@@ -208,19 +206,20 @@ with open('mission_basic.csv', 'w') as csv_file:
     csv_writer = csv.DictWriter(csv_file, fieldnames = fieldnames)
     csv_writer.writeheader()
 
+
 while True:
     nextwaypoint=vehicle.commands.next
-    print('Distance to waypoint (%s): %s' % (nextwaypoint, distance_to_current_waypoint()))
+    #print('Distance to waypoint (%s): %s' % (nextwaypoint, distance_to_current_waypoint()))
     print(vehicle.location.global_frame)
-
-    # recording vehicle location data to .csv
+  
+# recording vehicle location data to .csv
     with open('mission_basic.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
 
         info = {
             'lat':x,
             'long':y,
-            'altitude':z,
+            'alt':z,
             'time':t
         }
 
@@ -230,14 +229,14 @@ while True:
         x += (vehicle.location.global_frame.lat - home[0])*1e4 #scaling to get "readable values"
         y += (vehicle.location.global_frame.lon - home[1])*1e4
         z += vehicle.location.global_frame.alt - home[2]   
-  
-    if nextwaypoint==3: #Skip to next waypoint
-        print('Skipping to Waypoint 5 when reach waypoint 3')
-        vehicle.commands.next = 5
+
+   #if nextwaypoint==3: #Skip to next waypoint
+        #print('Skipping to Waypoint 5 when reach waypoint 3')
+       # vehicle.commands.next = 5
     if nextwaypoint==5: #Dummy waypoint - as soon as we reach waypoint 4 this is true and we exit.
         print("Exit 'standard' mission when start heading to final waypoint (5)")
-        break
-    time.sleep(delay)
+        break;
+    time.sleep(1)
 
 print('Return to launch')
 vehicle.mode = VehicleMode("RTL")

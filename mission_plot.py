@@ -16,8 +16,8 @@ def plotter(i):
     plt.plot(x, y, label = 'Follower Path')
     plt.xlabel('Relative Latitude (1e-4 deg)')
     plt.ylabel('Relative Longitdue (1e-4 deg)')
-    plt.xlim(-20, 20)
-    plt.ylim(-20, 20)
+    plt.xlim(-200, 200)
+    plt.ylim(-200, 200)
     plt.legend(loc = 'best')
     plt.grid(True)
 
@@ -29,7 +29,7 @@ def plotter(i):
     plt.xlabel('Time')
     plt.ylabel('z Position')
     plt.xlim(0, 20)
-    plt.ylim(0, 20)
+    plt.ylim(0, 200)
     plt.legend(loc = 'best')
     plt.grid(True)
 

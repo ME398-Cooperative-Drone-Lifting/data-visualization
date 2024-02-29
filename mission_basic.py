@@ -153,8 +153,8 @@ def arm_and_takeoff(aTargetAltitude):
     print("Arming motors")
     # Copter should arm in GUIDED mode
     vehicle.mode = VehicleMode("GUIDED")
-    vehicle.airspeed = 15
     vehicle.armed = True
+    vehicle.airspeed = 15
 
     while not vehicle.armed:      
         print(" Waiting for arming...")
@@ -186,7 +186,7 @@ vehicle.commands.next=0
 
 # Set mode to AUTO to start mission
 vehicle.mode = VehicleMode("AUTO")
-
+vehicle.airspeed = 15
 
 # Monitor mission. 
 # Demonstrates getting and setting the command number 

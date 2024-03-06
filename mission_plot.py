@@ -17,8 +17,8 @@ def plotter(i):
     plt.plot(x, y, label = 'Follower Path')
     plt.xlabel('Relative Latitude (1e-4 deg)')
     plt.ylabel('Relative Longitdue (1e-4 deg)')
-    plt.xlim(-200, 200)
-    plt.ylim(-200, 200)
+    plt.xlim(-20, 20)
+    plt.ylim(-20, 20)
     plt.legend(loc = 'best')
     plt.grid(True)
 

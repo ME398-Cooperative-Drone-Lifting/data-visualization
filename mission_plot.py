@@ -5,7 +5,7 @@ from matplotlib.animation import FuncAnimation
 def plotter(i):
     data = pd.read_csv('fly_to_point.csv')
     target_x = data['lat'][0]
-    target_y = data['lon'][0]
+    target_y = data['long'][0]
     target_z = data['alt'][0]
     x = data['lat'][1:]
     y = data['long'][1:]

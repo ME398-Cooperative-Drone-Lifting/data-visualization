@@ -120,7 +120,7 @@ while True:
         y += (vehicle.location.global_frame.lon - home[1])*1e4
         z += vehicle.location.global_frame.alt - home[2]
 
-    if (math.abs(vehicle.location.global_frame.lat - target_x) < 0.0001 and math.abs(vehicle.location.global_frame.lon
+    if (abs(vehicle.location.global_frame.lat - target_x) < 0.0001 and abs(vehicle.location.global_frame.lon
                                                                                      - target_y) < 0.0001):
         break 
     time.sleep(delay)

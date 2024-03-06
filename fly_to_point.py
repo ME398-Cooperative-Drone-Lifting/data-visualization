@@ -79,7 +79,7 @@ target_y = location_df[headers[1]][0]
 target_z = location_df[headers[2]][0]
 
 # writing csv for data visualization
-delay = 1
+delay = 0.1
 
 x = 0
 y = 0
@@ -100,7 +100,7 @@ with open('fly_to_point.csv', 'w') as csv_file:
 vehicle.mode = VehicleMode("GUIDED")
 point = LocationGlobalRelative(float(target_x), float(target_y), float(target_z + altitude_offset))
 print('Flying to: ', point)
-vehicle.simple_goto(point, groundspeed=10)
+vehicle.simple_goto(point, groundspeed=5)
     
 while True:
     with open('fly_to_point.csv', 'a') as csv_file:

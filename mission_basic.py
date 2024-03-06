@@ -37,6 +37,7 @@ if not connection_string:
 print('Connecting to vehicle on: %s' % connection_string)
 vehicle = connect(connection_string, wait_ready=True)
 
+#vehicle = connect('tcp:127.0.0.1:5760', wait_ready=True)
 
 def get_location_metres(original_location, dNorth, dEast):
     """

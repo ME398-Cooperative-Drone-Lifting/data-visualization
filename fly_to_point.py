@@ -95,7 +95,7 @@ with open('fly_to_point.csv', 'w') as csv_file:
             'alt':target_z,
             'time':0
         }
-
+    csv_writer.writerow(relative_target_loc)
     
 while True:
     vehicle.mode = VehicleMode("GUIDED")

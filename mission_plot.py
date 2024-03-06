@@ -34,5 +34,5 @@ def plotter(i):
     plt.legend(loc = 'best')
     plt.grid(True)
 
-animation = FuncAnimation(plt.gcf(), plotter, interval = 1000)
+animation = FuncAnimation(plt.gcf(), plotter, interval = 100)
 plt.show()

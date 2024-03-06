@@ -116,9 +116,9 @@ while True:
         csv_writer.writerow(info)
         print(x, y, z, t)
         t += delay
-        x += (vehicle.location.global_frame.lat - home[0])*1e4 #scaling to get "readable values"
-        y += (vehicle.location.global_frame.lon - home[1])*1e4
-        z += vehicle.location.global_frame.alt - home[2]
+        x = (vehicle.location.global_frame.lat - home[0])*1e4 #scaling to get "readable values"
+        y = (vehicle.location.global_frame.lon - home[1])*1e4
+        z = vehicle.location.global_frame.alt - home[2]
 
     if (abs(vehicle.location.global_frame.lat - target_x) < 0.0001 and abs(vehicle.location.global_frame.lon
                                                                                      - target_y) < 0.0001):

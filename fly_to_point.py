@@ -96,13 +96,13 @@ with open('fly_to_point.csv', 'w') as csv_file:
             'time':0
         }
     csv_writer.writerow(relative_target_loc)
+
+vehicle.mode = VehicleMode("GUIDED")
+point = LocationGlobalRelative(float(target_x), float(target_y), float(target_z + altitude_offset))
+print('Flying to: ', point)
+vehicle.simple_goto(point, groundspeed=10)
     
 while True:
-    vehicle.mode = VehicleMode("GUIDED")
-    point = LocationGlobalRelative(float(target_x), float(target_y), float(target_z + altitude_offset))
-
-    print('Flying to: ', point)
-
     with open('fly_to_point.csv', 'a') as csv_file:
         csv_writer = csv.DictWriter(csv_file, fieldnames=headers)
 
@@ -118,11 +118,9 @@ while True:
         t += delay
         x += (vehicle.location.global_frame.lat - home[0])*1e4 #scaling to get "readable values"
         y += (vehicle.location.global_frame.lon - home[1])*1e4
-        z += vehicle.location.global_frame.alt - home[2] 
+        z += vehicle.location.global_frame.alt - home[2]
 
-    vehicle.simple_goto(point, groundspeed=10)
-    
-
+    if (math.abs(vehicle.location.global_frame.lat - target_x) < 0.0001 and math.abs(vehicle.location.global_frame.lon
+                                                                                     - target_y) < 0.0001):
+        break 
     time.sleep(delay)
-
-file.close()

@@ -27,8 +27,8 @@ def plotter(i):
 
     plt.subplot(212)
     plt.cla()
-    plt.plot(t, z, label = 'Follower Altitude')
-    plt.axhline(y = target_z, color = 'r', label = 'Target Altitude', alpha = 0.6)
+    plt.plot(t, z, label = 'Follower Relative Altitude')
+    plt.axhline(y = target_z, color = 'r', label = 'Target Relative Altitude', alpha = 0.6)
     plt.fill_between(t, y1 = target_z, y2 = 0, color = 'r', alpha = 0.2)
     plt.xlabel('Time (s)')
     plt.ylabel('Altitude (m)')

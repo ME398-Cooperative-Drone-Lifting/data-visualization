@@ -2,6 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
+#hi
+
 def plotter(i):
     data = pd.read_csv('fly_to_point.csv')
     target_x = data['lat'][0]*1e4
